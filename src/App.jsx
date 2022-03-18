@@ -3,8 +3,8 @@ import { Route, Navigate, Routes, useNavigate } from "react-router-dom";
 import Header from "./components/Header";
 import Modals from "./components/Modals/Modals";
 import Orders from "./pages/Orders";
-// import Categories from "./pages/Categories";
-// import CategoriesDetails from "./pages/CategoriesDetails";
+import Categories from "./pages/Categories";
+import CategoriesDetails from "./pages/CategoriesDetails";
 import ProductDetail from "./pages/ProductDetail";
 import Products from "./pages/Products";
 
@@ -70,11 +70,12 @@ function App() {
                   user={user}
                   setUser={setUser}
                   updateQuantity={updateQuantity}
+                  setModal={setModal}
                 />
               }
             />
-            {/* <Route path="/categories" element={<Categories />} />
-            <Route path="/categories/:id" element={<CategoriesDetails />} /> */}
+            <Route path="/categories" element={<Categories />} />
+            <Route path="/categories/:name" element={<CategoriesDetails />} />
             <Route
               path="/orders"
               element={

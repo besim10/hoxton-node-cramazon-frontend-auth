@@ -6,16 +6,16 @@ const randColour = () =>
 function Categories() {
   const [categories, setCategories] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:3002/categories")
+    fetch("http://localhost:8000/categories")
       .then((resp) => resp.json())
       .then((categoriesFromServer) => setCategories(categoriesFromServer));
   }, []);
   return (
     <section className="categories-container main-wrapper">
       <ul className="categories-container__list">
-        {categories.map((category) => (
-          <li style={{ backgroundColor: `var(--${randColour()})` }}>
-            <Link to={`/categories/${category.id}`}>{category.name}</Link>
+        {categories.map((category, index) => (
+          <li key={index} style={{ backgroundColor: `var(--${randColour()})` }}>
+            <Link to={`/categories/${category.name}`}>{category.name}</Link>
           </li>
         ))}
       </ul>

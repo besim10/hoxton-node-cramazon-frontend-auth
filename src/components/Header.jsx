@@ -17,7 +17,7 @@ function Header({ setModal, user, setUser }) {
       <nav className="header__nav">
         <ul>
           <li>{<Link to="/products">Home</Link>}</li>
-          {/* <li>{<Link to="/categories">Categories</Link>}</li> */}
+          <li>{<Link to="/categories">Categories</Link>}</li>
           {user !== null ? <li>{<Link to="/orders">Orders</Link>}</li> : null}
           {user === null ? (
             <li

@@ -7,10 +7,11 @@ function CategoriesDetails() {
   const param = useParams();
 
   useEffect(() => {
-    fetch(`http://localhost:3002/products?categoryId=${param.id}`)
+    fetch(`http://localhost:8000/categories/${param.name}`)
       .then((resp) => resp.json())
-      .then((productsFromServer) => setProducts(productsFromServer));
+      .then((productsFromServer) => setProducts(productsFromServer.items));
   }, []);
+
   return <ProductList products={products} />;
 }
 export default CategoriesDetails;

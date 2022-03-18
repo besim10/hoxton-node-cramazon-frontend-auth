@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
-function ProductDetail({ user, setUser, updateQuantity }) {
+function ProductDetail({ user, setUser, updateQuantity, setModal }) {
   const params = useParams();
   const [item, setItem] = useState(null);
   const navigate = useNavigate();
@@ -39,8 +39,16 @@ function ProductDetail({ user, setUser, updateQuantity }) {
           <h2>{item.title}</h2>
           <p>{item.description}</p>
           <p>£{item.price} </p>
+
           <button
             onClick={() => {
+              if (user === null) {
+                setModal("firstLog-in");
+                setTimeout(() => {
+                  setModal("log-in");
+                }, 2000);
+                return;
+              }
               const match = user.orders.find(
                 (order) => order.itemId === item.id
               );

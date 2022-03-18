@@ -308,3 +308,10 @@ img {
   border-radius: 1rem;
   background-color: #000000;
 }
+.modal-container.message {
+  background-color: #88b719;
+  height: auto;
+}
+.modal-container.message h3 {
+  color: #000000;
+}
